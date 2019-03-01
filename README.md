@@ -15,3 +15,16 @@ Mono, Xamarin.iOS, Xamarin.Android, Xamarin.Mac targets do not version the runti
 For instance, the `System.String` type from Visual Studio 15.9 contains a `TrimStart()` method, where as in only contains `TrimStart(params char[])` in previous releases. 
 
 Building a library using VS 15.9, which makes a call as follows `myString.TrimStart()` the compiler will choose the method without parameters, which does not exist in VS15.8 and earlier. causing runtime exceptions such as `MissingMethodException` or linker errors which tries to determine the use of a method but cannot find it.
+
+### Common fixes
+
+#### System.String.TrimStart()
+```csharp
+var s = "";
+s.TrimStart();
+```
+Should become:
+```csharp
+var s = "";
+s.TrimStart(new char[0]);
+```
