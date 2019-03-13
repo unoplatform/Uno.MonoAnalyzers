@@ -13,6 +13,7 @@
 		<PackageProjectUrl>https://github.com/nventive/Uno.MonoAnalyzers</PackageProjectUrl>
 		<PackageIconUrl>https://nv-assets.azurewebsites.net/logos/uno.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/nventive/Uno.MonoAnalyzers</RepositoryUrl>
+		<DevelopmentDependency>True</DevelopmentDependency>
 		<Description>
 			A set of Roslyn C# analyzers for Xamarin and Mono-based code bases.
 		</Description>
