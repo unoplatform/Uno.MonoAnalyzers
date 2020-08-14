@@ -10,17 +10,11 @@ jobs:
   steps:
   - checkout: self
     clean: true
-
-  - task: NuGetToolInstaller@0
-    inputs:
-      versionSpec: 4.9.1
-      checkLatest: false
     
-  - task: GitVersion@4
-    # Ignore gitversion for forks, until this is fixed:
-    # https://developercommunity.visualstudio.com/content/problem/284991/public-vsts-previouw-cant-set-build-number-of-pr-b.html
-    condition: eq(variables['System.PullRequest.IsFork'], 'False')
+  - task: GitVersion@5
     inputs:
+      useConfigFile: true
+      configFilePath: gitversion.yml
       updateAssemblyInfo: false
 
   - task: DotNetCoreInstaller@0

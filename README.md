@@ -28,3 +28,9 @@ Should become:
 var s = "";
 s.TrimStart(new char[0]);
 ```
+
+## UNOM0003 Large number of static methods in a type with a static initializer
+
+This analyzer flags type with a static initializer and a large number of static methods.
+
+Such a pattern can create a very large set of boiler plate code that can be avoided by either removing static type initializers, or move static methods to instance methods and use a singleton.
